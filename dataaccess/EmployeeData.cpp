@@ -25,8 +25,8 @@ EmployeeData::EmployeeData(string filename){
             j["SSN"], 
             j["BDate"],
             j["Address"],
-            j["Sex"],
-            j["Salary"], 
+            (char)((int) j["Sex"]),
+            j[" Salary"], 
             j["SupperSSN"],
             j["DNO"] 
         );
@@ -51,7 +51,7 @@ Employee* EmployeeData::GetPointer(int i){
         e = &_data[i];
     return e;
 }
-string EmployeeData ::Tostring(){
+string EmployeeData::Tostring(){
     string s("");
     for (Employee e:_data){
         s += e.ToString();
@@ -68,6 +68,12 @@ int EmployeeData::ExporttoFile(string filename){
     outFile.close();
     return 1;
     }
-int Employee ::GetSize(){
+int EmployeeData ::GetSize(){
     return _data.size();
+}
+void EmployeeData::AddEmployee(){
+    EmployeeData employeeData;
+    Employee e()
+    employeeData.PushBack()
+
 }

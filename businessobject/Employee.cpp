@@ -44,14 +44,14 @@ json Employee::ToJson(){
     json j;
     j["Id"] = Id;
     j["FName"] = FName;
-     j["MInit"] = MInit;
-      j["LName"] = LName;
-       j["SSN"] = SSN;
-        j["BDate"] = BDate;
-         j["Address"] = Address;
-          j["Sex"] = Sex;
-           j["Salary"] = Salary;
-            j["SupperSSN"] = SuperSSN;
-             j["DNO"] = DNO;
+    j["MInit"] = MInit;
+    j["LName"] = LName;
+    j["SSN"] = SSN;
+    j["BDate"] = BDate;
+    j["Address"] = Address;
+    j["Sex"] = Sex;
+    j["Salary"] = Salary;
+    j["SupperSSN"] = SuperSSN;
+    j["DNO"] = DNO;
     return j;
 }

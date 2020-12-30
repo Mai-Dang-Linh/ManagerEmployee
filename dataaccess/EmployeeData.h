@@ -17,6 +17,7 @@ public:
     string Tostring();
     int GetSize();
     int ExporttoFile(string);
+    int AddEmployee(Employee);
     
 };
 #endif

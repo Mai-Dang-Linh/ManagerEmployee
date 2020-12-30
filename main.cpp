@@ -1,7 +1,7 @@
 #include <iostream>
 #include "businessobject/Employee.h"
 #include "dataaccess/EmployeeData.h"
-#include "libs/json.hpp"
+#include "../ManagerEmployee/libs/json.hpp"
 #include <string>
 
 using namespace std;
@@ -30,34 +30,28 @@ void GenerateEmployeeData(EmployeeData &a){
     a.PushBack(e8); 
 }
 void Write_to_file(EmployeeData ef){
+    GenerateEmployeeData(ef);
     ef.ExporttoFile("Outdata.json");
 }
 EmployeeData read_employee_from_file(){
     EmployeeData ed("Outdata.json");
+    cout<< ed.Tostring();
     return ed;
-    }
+}
 
 int main(){
 
-    // cout << "hello" << endl;
-    // EmployeeData e;
-    // GenerateEmployeeData(e);
-    // cout<<e.Tostring();
-    // void create_Employess_convert_to_json();
-    // Employee e(2, "Franklin", "T", "Wong", 333445555, "1955-12-08", "638’vbss, Houston, TX", 'M', 40000, 888665555, 5);
-    // json j = e.ToJson();
-    // EmployeeData d;
-    // d.PushBack(e);
-    // d.ExporttoFile("Outdata.json");
-    // cout<< j;
-    // EmployeeData e;
-    // GenerateEmployeeData(e);
 
-    // e.ExporttoFile("Outdata.json");
     EmployeeData e;
-    GenerateEmployeeData(e);
+//     GenerateEmployeeData(e);
+//     EmployeeData e;
+//    GenerateEmployeeData(e);
     Write_to_file(e);
-    cout<<e.Tostring();
+    read_employee_from_file();
+
+//    cout<< e.Tostring();
+//    cout << read_employee_from_file();
+
 
 
     cout<<"hello";
