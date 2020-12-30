@@ -1,34 +1,49 @@
 #include <iostream>
 #include "EmployeeUI.h"
 using namespace std;
+#include <string>
 
-EmployeeUI::EmployeeIU(){};
 
-EmployeeIU:: AddEmployee(Employee employee)
-{
-    int N;
-    cout<<" Enter number employee : ";
-    cin>> N;
-    for(int i=0;i<=N;i++)
-    {   // bien private nên khong the dung truc tiep, can tim cach.
-        // cout << "FName: ";
-        // cin >> employee.FName;
-        // cout << "MInit: ";
-        // cin >> employee.LName;
-        // cout << "LName: ";
-        // cin >> employee.SSN;
-        // cout <<"BDate : ";
-        // cin >> employee.BDate;
-        // cout <<"Address: ";
-        // cin >> employee.Address;
-        // cout <<"Sex: ";
-        // cin >> employee.Sex;
-        // cout <<"Salary: ";
-        // cin >> employee.Salary;
-        // cout <<"SuperSSN: ";
-        // cin >> employee.SuperSNN;
-        // cout <<"DNO: ";
-        // cin >> employee.DNO;
-    }
+EmployeeUI::EmployeeUI(){};
+
+Employee EmployeeUI::InputEmployee(){
+
+    int id; //id is increasing number
+    string fName, mInit, lName;
+    long ssn;
+    string bDate, address;
+    char sex;
+    int salary;
+    long superSSN;
+    int dno;
+ 
+    cout<<"Enter informated Employee : ";
+    cout << "Id = ";
+    cin>> id;
+    cout << "FName = ";
+    cin >> fName;
+    cout << "MInit = ";
+    cin >> mInit;
+    cout << "LName = ";
+    cin>>lName;
+    cout <<"SSN = ";
+    cin>>ssn;
+    cout <<"BDate = ";
+    cin >> bDate;
+    cin.ignore();
+    cout <<"Address= ";
+    getline(cin,address);
+//    cout <<endl;
+    cout << "Sex = ";
+    cin >> sex;
+    cout << "Salary = ";
+    cin >> salary;
+    cout << "SuperSSN = ";
+    cin >> superSSN;
+    cout << "DNO = ";
+    cin >> dno;
+
+    Employee e(id,fName,mInit,lName,ssn,bDate,address,sex,salary,superSSN,dno);
+    return (e);
+
 }
-

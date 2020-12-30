@@ -17,7 +17,11 @@ public:
     string Tostring();
     int GetSize();
     int ExporttoFile(string);
-    int AddEmployee(Employee);
+
+    //
+    vector<Employee> GetData(); 
+
+    // int AddEmployee(Employee);
     
 };
 #endif

@@ -1,10 +1,11 @@
-#ifndef Project_ui_Employee_H_
-#define Proiect_ui_Employee_H_
-#include "Employee.h"
+#ifndef EmployeeUI_H_
+#define EmployeeUI_H_
+#include "../businessobject/Employee.h"
 
-class EmployeeIU{
+class EmployeeUI{
 public:
-    EmployeeIU();
-    void AddEmployeeUI(Employee employee);
+    EmployeeUI();
+    Employee InputEmployee();
     
 };
+#endif

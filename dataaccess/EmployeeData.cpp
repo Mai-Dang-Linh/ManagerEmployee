@@ -17,6 +17,7 @@ EmployeeData::EmployeeData(string filename){
     char buff[maxSize];
     while(inFile.getline(buff,maxSize)){
         json j = json::parse(buff);
+        string Sex = to_string( j["Sex"]);
         Employee e(
             j["Id"],
             j["FName"],
@@ -25,12 +26,14 @@ EmployeeData::EmployeeData(string filename){
             j["SSN"], 
             j["BDate"],
             j["Address"],
-            (char)((int) j["Sex"]),
-            j[" Salary"], 
+            // (char)((int) j["Sex"]),
+            Sex[0],
+            j["Salary"], 
             j["SupperSSN"],
             j["DNO"] 
         );
         _data.push_back(e);
+        _maxId = j["Id"];
     }
     inFile.close();
 }
@@ -68,12 +71,17 @@ int EmployeeData::ExporttoFile(string filename){
     outFile.close();
     return 1;
     }
+
 int EmployeeData ::GetSize(){
     return _data.size();
 }
-void EmployeeData::AddEmployee(){
-    EmployeeData employeeData;
-    Employee e()
-    employeeData.PushBack()
+// lay dữ lieu tu mot vector.
+vector<Employee> EmployeeData::GetData(){
+    return _data;
+}; 
+// void EmployeeData::AddEmployee(){
+//     EmployeeData employeeData;
+//     Employee e()
+//     employeeData.PushBack()
 
-}
+// }

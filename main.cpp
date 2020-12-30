@@ -1,8 +1,10 @@
 #include <iostream>
 #include "businessobject/Employee.h"
 #include "dataaccess/EmployeeData.h"
-#include "../ManagerEmployee/libs/json.hpp"
+#include "libs/json.hpp"
+#include "ui/EmployeeUI.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 using json = nlohmann::json;
@@ -11,7 +13,7 @@ using json = nlohmann::json;
  * Function load input data ___
  * @return not 
  */
-void GenerateEmployeeData(EmployeeData &a){
+void GenerateEmployeeData(EmployeeData& a){
     Employee e1(1, "John", "B", "Smith", 123456789, "1965-01-09", "731 Fondren, Houston, TX", 'M', 30000, 333445555, 5);
     Employee e2(2, "Franklin", "T", "Wong", 333445555, "1955-12-08", "638 Voss, Houston, TX", 'M', 40000, 888665555, 5);
     Employee e3(3, "Alida", "J", "Zelaya", 999887777, "968-07-19", "3321 Castle, Spring. TX", 'F', 25000, 987654321, 4);
@@ -33,21 +35,68 @@ void Write_to_file(EmployeeData ef){
     GenerateEmployeeData(ef);
     ef.ExporttoFile("Outdata.json");
 }
-EmployeeData read_employee_from_file(){
-    EmployeeData ed("Outdata.json");
-    cout<< ed.Tostring();
-    return ed;
+void PrintInformation(EmployeeData employeeData)
+{
+    cout << " Information: "<<endl;
+    cout << employeeData.Tostring();
 }
+// void Read_employee_from_file(){
+//     EmployeeData employeeData("Outdata.json");
+//     for(int i = 0; i< employeeData.GetMaxId(); i++){
+//         Employee* f = employeeData.GetPointer(i);
+//         cout << f->ToString()<< endl;
+//         cout << "--------------------------------------------------------------------------" << endl;
+//     }
+// }
 
 int main(){
 
 
-    EmployeeData e;
-//     GenerateEmployeeData(e);
-//     EmployeeData e;
-//    GenerateEmployeeData(e);
-    Write_to_file(e);
-    read_employee_from_file();
+    Employee employee;
+
+    EmployeeUI inputE;
+
+    EmployeeData employeeData("OutData.json");
+//    PrintInformation(employeeData);
+    Write_to_file(employeeData);
+    cout <<"Lay dữ lieu tu vector :"<< endl;
+ //   cout << employeeData.GetData();
+
+    cout << employeeData.GetMaxId();
+    char M;
+    cout <<"Enter new employee, press Y : ";;
+    cin>>M;
+    if(M ='Y')
+    {
+    employee = inputE.InputEmployee();
+    employeeData.PushBack(employee);
+
+    cout << employeeData.GetMaxId();
+    // employeeData.ExporttoFile("Outdata.json"); 
+    }
+    
+
+
+
+    // for(int i = 0; i< employeeData.GetMaxId(); i++){
+    //     Employee* f = employeeData.GetPointer(i);
+    //     cout << f->ToString()<< endl;
+    //     cout << "--------------------------------------------------------------------------" << endl;
+    // }
+    // EmployeeData employeeData("Outdata.json");
+
+    // GenerateEmployeeData(employeeData);// du lieu dau vao
+    // PrintInformation(employeeData);// in ra du lieu 
+    // employeeData.ExporttoFile("Outdata.json");
+    // PrintInformation(employeeData);
+
+
+
+
+
+
+    // Write_to_file(e);
+    // read_employee_from_file();
 
 //    cout<< e.Tostring();
 //    cout << read_employee_from_file();
